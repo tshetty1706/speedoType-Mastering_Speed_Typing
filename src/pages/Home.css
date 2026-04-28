@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0px 15px 0px 15px;
+  padding: 0;
+}
+ 
+html,
+body,
+#root {
+  /* height: 100%; */
+  background: #323437;
+  color: #d1d0c5;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  min-height: 75vh;
+}
+
+.get-started-btn {
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  background: transparent;
+  color: #d1d0c5;
+  border: 1.5px solid rgba(209, 208, 197, 0.4);
+  border-radius: 8px;
+  font-family: 'Lexend Deca', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.get-started-btn:hover {
+  background: rgba(226, 183, 20, 0.1);
+  border-color: #e2b714;
+  color: #e2b714;
+}
+
+.get-started-btn:active {
+  transform: scale(0.98);
+  background: rgba(226, 183, 20, 0.15);
+}

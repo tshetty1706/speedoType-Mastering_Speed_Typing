@@ -1,0 +1,94 @@
+.leaderboard {
+  width: 340px;
+  margin: 10px auto;
+  padding: 25px 20px;
+  background: #252729;
+  border-radius: 14px;
+  border: 1px solid rgba(209, 208, 197, 0.24);
+}
+
+/* Title */
+.leaderboard h2 {
+  text-align: center;
+  color: #e2b714; /* Monkeytype yellow */
+  margin-bottom: 25px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* Empty state */
+.empty {
+  text-align: center;
+  color: #666;
+  padding: 20px 10px;
+}
+
+.empty p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.empty span {
+  font-size: 13px;
+  color: #999;
+}
+
+/* List */
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Item */
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+/* Hover = subtle, not flashy */
+.leaderboard-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Rank */
+.rank {
+  font-size: 20px;
+  width: 30px;
+}
+
+/* Player info */
+.player-info {
+  text-align: right;
+}
+
+.name {
+  color: #ddd;
+  font-weight: 400;
+}
+
+.score {
+  color: #e2b714;
+  font-size: 14px;
+}
+
+/* Top 3 subtle highlight */
+.leaderboard-item:nth-child(1) {
+  background: rgba(226, 183, 20, 0.08);
+}
+
+.leaderboard-item:nth-child(2) {
+  background: rgba(192, 192, 192, 0.05);
+}
+
+.leaderboard-item:nth-child(3) {
+  background: rgba(205, 127, 50, 0.05);
+}
+
+.leaderboard-item:hover {
+  box-shadow: 0 0 10px rgba(226, 183, 20, 0.2);
+}
