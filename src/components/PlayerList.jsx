@@ -63,8 +63,6 @@ function PlayerList({ players = [] , setPlayers }) {
     nav(`/typing/${key}`);
   }
 
-  console.log(players);
-
   return (
     <div className="player-container">
       <h2>Select Player</h2>

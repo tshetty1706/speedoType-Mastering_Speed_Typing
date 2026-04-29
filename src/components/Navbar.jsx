@@ -17,7 +17,6 @@ function Navbar( { activePlayer } ){
     navigate(path);
     setMenuOpen(false);
   };
-  console.log(activePlayer)
 
   return(
     <div>
@@ -31,7 +30,7 @@ function Navbar( { activePlayer } ){
         {/* Menu Container */}
         <div className="tt-menu-container">
           <div className="tt-header-right">
-            {activePlayer && (
+            {activePlayer.length !==0  && (
               <div className="tt-bestScore">
                 <h1>Best Score: <span>0</span></h1>
               </div>

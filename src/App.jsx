@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter, Route, Routes, useSearchParams } from "react-router-dom";
 import PlayerList from "./components/PlayerList";
 import Typing from "./components/Typing";
+import { AiFillCamera } from "react-icons/ai";
 
 export default function App() {
 
@@ -15,38 +16,12 @@ export default function App() {
 
   useEffect(() => {
     localStorage.setItem("players", JSON.stringify(players));
-    // const playerId = getPlayerIdFromUrl();
-    // if (playerId) {
-    //   // Find the player AGAIN from the updated players array
-    //   const player = players.find(ele => ele.key === parseInt(playerId));
-    //   setActivePlayer(player || null);  // Update with fresh data
-    // } else {
-    //   setActivePlayer(null);
-    // }
   }, [players]);
   //explanation of the above line: Whenever the players state changes, the useEffect hook is triggered, and it updates the localStorage with the new players data by converting it to a JSON string using JSON.stringify(players). 
   //json.stringify is used to convert the players array into a string format that can be stored in localStorage, as localStorage can only store strings. This way, we ensure that the players data is persisted across page reloads and sessions.
 
-  const [activePlayer, setActivePlayer] = useState(() => {
-    const params = new URLSearchParams(window.location.search);
-    const playerId = params.get("playerId");
-    if (playerId) {
-      return players.find(ele => ele.key === parseInt(playerId)) || null;
-    }
-    return null;
-  });
-
-  useEffect(()=>{
-    const params = new URLSearchParams(window.location.search);
-    const playerId = params.get("playerId");
-
-    if(playerId === null){
-      setActivePlayer(null);
-      return;
-    }
-    const player = players.find(ele => ele.key === parseInt(playerId));
-    setActivePlayer(player || null);
-  },[window.location.search, players])
+  const [activePlayer, setActivePlayer] = useState([]);
+  console.log(activePlayer);
 
   return (
     <div>
@@ -55,7 +30,7 @@ export default function App() {
         <Routes >
           <Route path="/" element={<Home players={players} />} />
           <Route path="/player" element={<PlayerList players={players} setPlayers={setPlayers} setActivePlayer={setActivePlayer} />} />
-          <Route path ="/typing/:playerId" element={<Typing/>} />
+          <Route path ="/typing/:playerId" element={<Typing setActivePlayer={setActivePlayer} players={players} />} />
         </Routes>
       </BrowserRouter>
     </div>
